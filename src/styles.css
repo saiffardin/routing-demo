@@ -33,6 +33,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   cursor: hand;
+  margin: 5px;
 }
 button:hover {
   background-color: #cfd8dc;
