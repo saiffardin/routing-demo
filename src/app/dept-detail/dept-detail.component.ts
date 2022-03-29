@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dept-detail',
@@ -10,6 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
       <button (click)="goPrevious()">Previous</button>
       <button (click)="goNext()">Next</button>
     </p>
+
+    <div>
+      <button (click)="gotoDepartments()">Back</button>
+    </div>
   `,
   styles: [],
 })
@@ -21,7 +25,7 @@ export class DeptDetailComponent implements OnInit {
   ngOnInit(): void {
     // console.log('deptID:', typeof this.deptID);
 
-    this.route.paramMap.subscribe((params) => {
+    this.route.paramMap.subscribe((params: ParamMap) => {
       let id = Number(params.get('id'));
       this.deptID = id;
     });
@@ -35,5 +39,13 @@ export class DeptDetailComponent implements OnInit {
   goNext() {
     let nextId = this.deptID + 1;
     this.router.navigate(['/departments', nextId]);
+  }
+
+  gotoDepartments() {
+    let selectedId = this.deptID ? this.deptID : null;
+    //this.router.navigate(['/departments', {id: selectedId}]);
+    this.router.navigate(['../', { id: selectedId }], {
+      relativeTo: this.route,
+    });
   }
 }

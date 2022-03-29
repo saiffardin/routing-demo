@@ -89,7 +89,7 @@ nav a.active {
 }
 .items li.selected:hover {
   background-color: #bbd8dc;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .items .text {
@@ -123,7 +123,8 @@ nav a.active {
   border-radius: 4px 0 0 4px;
 }
 .items li.selected {
-  background-color: #cfd8dc;
+  /* background-color: #cfd8dc; */
+  background-color: #67a2bb;
   color: white;
 }
 /* everywhere else */
